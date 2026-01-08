@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLACEMAP</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <header class="hero">
+    <h1 class="hero-title">PLACEMAP</h1>
+    <p class="hero-subtitle">AI-Driven Placement Readiness Analyzer</p>
+  </header>
+
+  <section class="input-section">
+    <h3 class="section-title">Choose Input Method</h3>
+    <div class="mode-selector">
+      <label class="mode-option">
+        <input type="radio" name="mode" value="manual" checked onclick="toggleMode()">
+        <span>Manual Input</span>
+      </label>
+      <label class="mode-option">
+        <input type="radio" name="mode" value="resume" onclick="toggleMode()">
+        <span>Upload Resume</span>
+      </label>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <div id="manualSection" class="form-container">
+      <h3 class="form-title">Input Details</h3>
+
+      <div class="form-group">
+        <!-- <label for="skills">Skills (comma separated)</label>-->
+        <label for="skills">Skills</label>
+        <input id="skills" type="text" value="C++,DSA,OOPS,HTML" placeholder="e.g., C++, DSA, OOPS, HTML">
+      </div>
+
+      <div class="form-group">
+        <!-- <label for="projects">Projects (comma separated)</label>-->
+        <label for="projects">Projects</label>
+        <input id="projects" type="text" value="Student Management System" placeholder="e.g., Student Management System">
+      </div>
+
+      <div class="form-group">
+        <label for="role">Target Role</label>
+        <input id="role" type="text" value="SDE-1" placeholder="e.g., SDE-1">
+      </div>
+
+      <div class="form-group">
+        <label for="hours">Hours per week</label>
+        <input id="hours" type="number" value="10" placeholder="10">
+      </div>
+    </div>
+
+    <div id="resumeSection" class="form-container" style="display:none;">
+      <h3 class="form-title">Upload & Configure</h3>
+
+      <div class="form-group">
+        <label for="resumeFile">Upload Resume (PDF)</label>
+        <input type="file" id="resumeFile" accept="application/pdf">
+      </div>
+
+      <div class="form-group">
+        <label for="resumeRole">Target Role</label>
+        <input id="resumeRole" type="text" value="SDE-1" placeholder="e.g., SDE-1">
+      </div>
+
+      <div class="form-group">
+        <label for="resumeHours">Hours per week</label>
+        <input id="resumeHours" type="number" value="10" placeholder="10">
+      </div>
+    </div>
+
+    <button id="analyzeBtn" class="btn-primary" onclick="analyze()">
+      <span>Analyze Readiness</span>
+    </button>
+  </section>
+
+  <div id="fallbackNotice" class="card card-warning" style="display:none;">
+    <span class="icon">⚠️</span>
+    <div>
+      <strong>Notice:</strong> AI quota was temporarily exceeded. Showing fallback analysis.
+    </div>
+  </div>
+
+  <section class="results-section">
+    <h3 class="section-title">Results</h3>
+
+    <div id="loading" class="loading-state" style="display:none;">
+      <div class="spinner"></div>
+      <p>Analyzing placement readiness…</p>
+    </div>
+
+    <div id="results" style="display:none;">
+
+      <div id="phaseNote" class="card card-info" style="display:none;">
+        <span class="icon">ℹ️</span>
+        <div>
+          <strong>Note:</strong> This is a Phase-1 roadmap. Full preparation may require 3–6 months.
+        </div>
+      </div>
+
+      <div class="card card-featured">
+        <h2 class="card-title">📊 Readiness Score</h2>
+        <div id="score" class="score-box"></div>
+        <div class="progress-container">
+          <div id="scoreBar" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">🧠 Skill–Job Match</h3>
+        <div id="match" class="card-content"></div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">❌ Missing Skills</h3>
+        <ul id="missing" class="card-list"></ul>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">⚡ Priority Skills</h3>
+        <ul id="priority" class="card-list"></ul>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">🎯 Alternative Roles You Can Target</h3>
+        <div id="alternativeRoles" class="card-content"></div>
+      </div>
+
+      <h3 class="section-title roadmap-title">🗺️ 30-Day Roadmap</h3>
+
+      <div class="card">
+        <h4 class="card-subtitle">📅 Week 1</h4>
+        <ul id="week1" class="card-list"></ul>
+      </div>
+
+      <div class="card">
+        <h4 class="card-subtitle">📅 Week 2</h4>
+        <ul id="week2" class="card-list"></ul>
+      </div>
+
+      <div class="card">
+        <h4 class="card-subtitle">📅 Week 3</h4>
+        <ul id="week3" class="card-list"></ul>
+      </div>
+
+      <div class="card">
+        <h4 class="card-subtitle">📅 Week 4</h4>
+        <ul id="week4" class="card-list"></ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
