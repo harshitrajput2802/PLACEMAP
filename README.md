@@ -41,6 +41,6 @@ This project was built as part of a hackathon to solve a real campus placement p
 ## Contributors
 
 - Harshit Rajput – Backend / Core Logic
-- Himanshu Thakur – UI Design
+- Himanshu Thakur – UI/UX Design
 - Harsh Thakur – API Integration
 - Ishit Kumar Yadav – Research and Documentation
