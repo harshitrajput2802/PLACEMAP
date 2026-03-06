@@ -43,4 +43,4 @@ This project was built as part of a hackathon to solve a real campus placement p
 - Harshit Rajput – Backend / Core Logic
 - Himanshu Thakur – UI Design
 - Harsh Thakur – API Integration
-- Ishit Kumar Yadav – Documentation
+- Ishit Kumar Yadav – Research and Documentation
