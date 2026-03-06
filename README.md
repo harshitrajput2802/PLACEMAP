@@ -2,7 +2,7 @@
 
 PLACEMAP is an AI-driven placement readiness and skill–job alignment platform designed to help students understand where they stand and what to do next.
 
-## Problem
+## Problem Statement
 Students often prepare for placements blindly without knowing:
 - Which roles they are realistically ready for
 - What skills they are missing
