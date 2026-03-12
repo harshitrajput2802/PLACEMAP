@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
   res.send("PLACEMAP backend is running");
 });
 
-// ================== SKILL-BASED ANALYSIS ==================
+// ================== SKILL- BASED ANALYSIS ==================
 app.post("/analyze", async (req, res) => {
   const { skills, projects, targetRole, hoursPerWeek } = req.body;
 
